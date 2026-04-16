@@ -1,15 +1,11 @@
-import static org.junit.Assert.assertEquals;
-import org.junit.Test;
+package com.library;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class AppTest {
     @Test
-    public void testFineCalculation_NoFine() {
-        assertEquals(0.0, App.calculateFine(10, 14, 5.0), 0.001);
-    }
-
-    @Test
-    public void testFineCalculation_WithFine() {
-        // 16 days - 14 limit = 2 extra days * $5 = $10.0
-        assertEquals(10.0, App.calculateFine(16, 14, 5.0), 0.001);
+    public void testFineCalculation() {
+        assertEquals(0.0, App.calculateFine(5), "No fine for 5 days");
+        assertEquals(15.0, App.calculateFine(10), "Fine for 10 days (3 days extra * 5)");
     }
 }
